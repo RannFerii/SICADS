@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equipment Transformers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nomenclatura</th>
+      <th>Transformador type</th>
+      <th>Type</th>
+      <th>Numero activo fijo</th>
+      <th>Fecha puesta servicio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transformers.each do |transformer| %>
+      <tr>
+        <td><%= transformer.nomenclatura %></td>
+        <td><%= transformer.transformador_type %></td>
+        <td><%= transformer.phase_type %></td>
+        <td><%= transformer.numero_activo_fijo %></td>
+        <td><%= transformer.fecha_puesta_servicio %></td>
+        <td><%= link_to 'Show', equipment_transformer_path(transformer) %></td>
+        <td><%= link_to 'Edit', edit_equipment_transformer_path(transformer) %></td>
+        <td><%= link_to 'Destroy', equipment_transformer_path(transformer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment Transformer', new_equipment_transformer_path %>

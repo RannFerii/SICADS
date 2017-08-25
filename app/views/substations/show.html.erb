@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre subestacion:</strong>
+  <%= @substation.nombre_subestacion %>
+</p>
+
+<p>
+  <strong>Subestacion abbr:</strong>
+  <%= @substation.subestacion_abbr %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @substation.direccion %>
+</p>
+
+<p>
+  <strong>Extencion:</strong>
+  <%= @substation.extencion %>
+</p>
+
+<p>
+  <strong>Encargado nombre:</strong>
+  <%= @substation.encargado_nombre %>
+</p>
+
+<p>
+  <strong>Encargado apellidos:</strong>
+  <%= @substation.encargado_apellidos %>
+</p>
+
+<p>
+  <strong>Capacidad:</strong>
+  <%= @substation.capacidad %>
+</p>
+
+<p>
+  <strong>Fecha puesta servicio:</strong>
+  <%= @substation.fecha_puesta_servicio %>
+</p>
+
+<%= link_to 'Edit', edit_substation_path(@substation) %> |
+<%= link_to 'Back', substations_path %>

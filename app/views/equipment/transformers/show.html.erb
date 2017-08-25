@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomenclatura:</strong>
+  <%= @transformer.nomenclatura %>
+</p>
+
+<p>
+  <strong>Transformador type:</strong>
+  <%= @transformer.transformador_type %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @transformer.phase_type %>
+</p>
+
+<p>
+  <strong>Numero activo fijo:</strong>
+  <%= @transformer.numero_activo_fijo %>
+</p>
+
+<p>
+  <strong>Fecha puesta servicio:</strong>
+  <%= @transformer.fecha_puesta_servicio %>
+</p>
+<p>
+  <strong>Fases del Transformador </strong>
+  <%  @transformer.phases.each do |t| %>
+    <li> <%= t.fase %> </li>
+    <li> <%= t.marca %> </li>
+    <li> <%= t.num_serie %> </li>
+    <li> <%= t.fecha_fabricacion %> </li>
+    <li> <%= t.impedencia_max_hx_capacidad %> </li>
+    <li> <%= t.impedancia_max_hy_capacidad %> </li>
+    <li> <%= t.impedancia_max_xy_capacidad %> </li>
+    <li> <%= t.relacion_transformacion %> </li>
+    <li> <%= t.capacidad %> </li>
+    <li> <%= t.transformacion %> </li>
+    <li> <%= t.masa_embarque %> </li>
+    <li> <%= t.esquema_nucleo %> </li>
+    <li> <%= t.total_aceite %> </li>
+    <li> <%= t.sistema_enfriamiento %> </li>
+    <li> <%= t.mampara %> </li>
+    <li> <%= t.cambiador_taps %> </li>
+    <li> <%= t.num_taps %> </li>
+    <li> <%= t.sistema_contra_incendios %> </li>
+    <li> <%= t.fosa_captadora_aceite %> </li>
+    <li> <%= t.tension_sistema %> </li>
+    <li> <%= t.capacitancia %> </li>
+    <li> <%= t.clase_exactitud %> </li>
+    <li> <%= t.tipo_expancion_aceite %> </li>
+    <li> <%= t.tipo_envolvente %> </li>
+    <li> <%= t.mva %> </li>
+    <li> <%= t.kv_nom_at %> </li>
+    <li> <%= t.kv_nom_bt %> </li>
+    <li> <%= t.kv_nom_terciario %> </li>
+    <li> <%= t.porcentage_z %> </li>
+    <li> <%= t.fecha_puesta_servicio %> </li>
+  <% end %>
+
+    <%  @transformer.mouthpieces.each do |t| %>
+        <li> <%= t.marca %> </li>
+        <li> <%= t.tipo %> </li>
+        <li> <%= t.num_serie %> </li>
+        <li> <%= t.kv %> </li>
+        <li> <%= t.amp %> </li>
+        <li> <%= t.fecha_fabricacion %> </li>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_transformer_path(@transformer) %> |
+<%= link_to 'Back', equipment_transformers_path %>

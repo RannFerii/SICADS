@@ -1,0 +1,22 @@
+<%= simple_form_for(@reactor) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nomenclatura %>
+    <%= f.input :reactor_type %>
+    <%= f.input :marca %>
+    <%= f.input :num_serie %>
+    <%= f.input :mva %>
+    <%= f.input :clase_enf %>
+    <%= f.input :kv_nom_at %>
+    <%= f.input :kv_nom_bt %>
+    <%= f.input :kv_nom_terciario %>
+    <%= f.input :fecha_fabricacion %>
+    <%= f.input :porcentaje_z %>
+    <%= f.input :fecha_puesta_servicio %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
