@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   namespace :equipment do
     resources :reactors
-  end
-  namespace :equipment do
     resources :transformers
   end
   resources :substations

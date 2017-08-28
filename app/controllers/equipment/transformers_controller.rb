@@ -36,12 +36,16 @@ class Equipment::TransformersController < ApplicationController
   # PATCH/PUT /equipment/transformers/1
   # PATCH/PUT /equipment/transformers/1.json
   def update
-      if @transformer.update(transformer_params)
-        redirect_to ["equipment",@transformer], notice: 'El transformador fue actualizado con éxito.'
-      else
-      render :edit
+    @transformer = Transformer.find(params[:id])
 
+    respond_to do |format|
+      if @transformer.update_attributes(transformer_params)
+        format.html { redirect_to ["equipment",@transformer], :notice => 'El transformador fue actualizado con éxito' }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
       end
+    end
 
   end
 
