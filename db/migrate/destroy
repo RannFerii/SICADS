@@ -8,8 +8,6 @@ class CreateMouthpieces < ActiveRecord::Migration[5.0]
       t.string :amp
       t.date :fecha_fabricacion
       t.belongs_to :phase, foreign_key: true
-
-
       t.timestamps
     end
   end

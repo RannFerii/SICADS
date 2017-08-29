@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825144954) do
+ActiveRecord::Schema.define(version: 20170829141348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "mouthpieces", force: :cascade do |t|
-    t.string   "marca"
-    t.string   "tipo"
-    t.string   "num_serie"
-    t.string   "kv"
-    t.string   "amp"
-    t.date     "fecha_fabricacion"
-    t.integer  "phase_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["phase_id"], name: "index_mouthpieces_on_phase_id", using: :btree
-  end
 
   create_table "phases", force: :cascade do |t|
     t.integer  "fase"
@@ -95,6 +82,21 @@ ActiveRecord::Schema.define(version: 20170825144954) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "trans_mouthpieces", force: :cascade do |t|
+    t.string   "marca"
+    t.string   "tipo"
+    t.string   "num_serie"
+    t.string   "kv"
+    t.string   "amp"
+    t.date     "fecha_fabricacion"
+    t.integer  "phase_id"
+    t.integer  "transformer_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["phase_id"], name: "index_trans_mouthpieces_on_phase_id", using: :btree
+    t.index ["transformer_id"], name: "index_trans_mouthpieces_on_transformer_id", using: :btree
+  end
+
   create_table "transformers", force: :cascade do |t|
     t.string   "nomenclatura"
     t.integer  "transformador_type"
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170825144954) do
     t.datetime "updated_at",            null: false
   end
 
-  add_foreign_key "mouthpieces", "phases"
   add_foreign_key "phases", "transformers"
+  add_foreign_key "trans_mouthpieces", "phases"
+  add_foreign_key "trans_mouthpieces", "transformers"
 end

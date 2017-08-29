@@ -2,7 +2,9 @@
   <td>
     <%= link_to_remove_association "Eliminar fase", f, class: 'btn btn-primary btn-xs' %>
   </td>
-    <td><%= f.input :fase %></td>
+    <td>
+     <%= f.label :Fase %>
+     <%= f.select :fase, Phase.fases.keys.to_a, { prompt: 'Seleccionar' }  %> </td>
     <td><%= f.input :marca %></td>
     <td><%= f.input :num_serie %></td>
     <td><%= f.input :fecha_fabricacion %></td>
@@ -35,11 +37,11 @@
   <td>
   <div>
     <h3>Boquillas</h3>
-    <%= f.simple_fields_for :mouthpieces do |mouthpiece| %>
-        <%= render 'mouthpiece_fields', f: mouthpiece %>
+    <%= f.simple_fields_for :trans_mouthpieces do |trans_mouthpiece| %>
+        <%= render 'trans_mouthpiece_fields', f: trans_mouthpiece %>
     <% end %>
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Boquilla', f, :mouthpieces %>
+    <%= link_to_add_association 'Agregar Boquilla', f, :trans_mouthpieces %>
   </div>
 </div>
  </td>

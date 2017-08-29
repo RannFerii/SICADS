@@ -58,9 +58,9 @@
     <li> <%= t.porcentage_z %> </li>
     <li> <%= t.fecha_puesta_servicio %> </li>
   <% end %>
-
+ <p>
   <strong>Boquillas </strong>
-    <%  @transformer.mouthpieces.each do |t| %>
+    <%  @transformer.trans_mouthpieces.each do |t| %>
         <li> <%= t.marca %> </li>
         <li> <%= t.tipo %> </li>
         <li> <%= t.num_serie %> </li>
@@ -69,6 +69,7 @@
         <li> <%= t.fecha_fabricacion %> </li>
     <% end %>
 </p>
+
 
 <%= link_to 'Edit', edit_equipment_transformer_path(@transformer) %> |
 <%= link_to 'Back', equipment_transformers_path %>
