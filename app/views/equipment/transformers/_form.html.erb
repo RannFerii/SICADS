@@ -3,7 +3,8 @@
 
   <div class="form-inputs">
     <%= f.input :nomenclatura %>
-    <%= f.input :transformador_type %>
+       <%= f.label :Tipo_de_transformador %>
+      <%= f.select :transformador_type, Transformer.transformador_types.keys.to_a, { prompt: 'Seleccionar' }  %>
     <%= f.input :phase_type %>
     <%= f.input :numero_activo_fijo %>
     <%= f.input :fecha_puesta_servicio %>

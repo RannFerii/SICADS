@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MouthpieceTest < ActiveSupport::TestCase
+class TransMouthpieceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -6,9 +6,8 @@ one:
   num_serie: MyString
   kv: MyString
   amp: MyString
-  fecha_fabricacion: 2017-08-25
+  fecha_fabricacion: 2017-08-29
   phase: one
-  reactor: one
 
 two:
   marca: MyString
@@ -16,6 +15,5 @@ two:
   num_serie: MyString
   kv: MyString
   amp: MyString
-  fecha_fabricacion: 2017-08-25
+  fecha_fabricacion: 2017-08-29
   phase: two
-  reactor: two
