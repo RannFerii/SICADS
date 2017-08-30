@@ -58,6 +58,15 @@
     <li> <%= t.porcentage_z %> </li>
     <li> <%= t.fecha_puesta_servicio %> </li>
   <% end %>
+   <p>
+  <strong>Cambiador de Taps </strong>
+    <%  @transformer.tap_changers.each do |t| %>
+        <li> <%= t.marca %> </li>
+        <li> <%= t.tipo %> </li>
+        <li> <%= t.serie %> </li>
+        <li> <%= t.num_pasos %> </li>
+    <% end %>
+</p>
  <p>
   <strong>Boquillas </strong>
     <%  @transformer.trans_mouthpieces.each do |t| %>

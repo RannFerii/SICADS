@@ -1,5 +1,6 @@
 class Transformer < ApplicationRecord
   has_many :phases, inverse_of: :transformer
+  has_many :tap_changers, through: :phases
   has_many :trans_mouthpieces, through: :phases
   accepts_nested_attributes_for :phases,
                                 allow_destroy: true,

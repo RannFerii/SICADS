@@ -11,7 +11,6 @@ class CreateReactors < ActiveRecord::Migration[5.0]
       t.integer :kv_nom_bt
       t.integer :kv_nom_terciario
       t.date :fecha_fabricacion
-      t.string :porcentaje_z, array: true, default: []
       t.date :fecha_puesta_servicio
 
       t.timestamps
