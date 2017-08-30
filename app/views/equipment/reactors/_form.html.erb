@@ -1,4 +1,4 @@
-<%= simple_form_for(@reactor) do |f| %>
+<%= simple_form_for(['equipment',@reactor]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -12,11 +12,19 @@
     <%= f.input :kv_nom_bt %>
     <%= f.input :kv_nom_terciario %>
     <%= f.input :fecha_fabricacion %>
-    <%= f.input :porcentaje_z %>
     <%= f.input :fecha_puesta_servicio %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="react_mouthpieces">
+    <h3>Boquillas</h3>
+    <%= f.simple_fields_for :react_mouthpieces do |react_mouthpiece| %>
+        <%= render 'react_mouthpiece_fields', f: react_mouthpiece %>
+    <% end %>
+    <div class="links">
+       <%= f.button :submit %>
+      <%= link_to_add_association 'Agregar Boquilla a Reactor', f, :react_mouthpieces %>
+    </div>
   </div>
+
+
 <% end %>
