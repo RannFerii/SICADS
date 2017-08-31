@@ -69,6 +69,6 @@ class Equipment::ReactorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reactor_params
-      params.require(:reactor).permit(:nomenclatura, :reactor_type, :marca, :num_serie, :mva, :clase_enf, :kv_nom_at, :kv_nom_bt, :kv_nom_terciario, :fecha_fabricacion, :porcentaje_z, :fecha_puesta_servicio)
+      params.require(:reactor).permit(:nomenclatura, :reactor_type, :marca, :num_serie, :mva, :clase_enf, :kv_nom_at, :kv_nom_bt, :kv_nom_terciario, :fecha_fabricacion, :fecha_puesta_servicio, react_mouthpieces_attributes: [:id, :_destroy, :marca, :tipo, :num_serie, :kv, :amp,  :fecha_fabricacion])
     end
 end

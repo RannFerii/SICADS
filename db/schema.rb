@@ -66,19 +66,17 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.string   "impedancia_max_hy_capacidad"
     t.string   "impedancia_max_xy_capacidad"
     t.string   "relacion_transformacion"
-    t.string   "capacidad"
-    t.string   "transformacion"
+    t.string   "capacidad_transformacion"
+    t.string   "capacitancia_total"
     t.integer  "masa_embarque"
     t.integer  "esquema_nucleo"
     t.integer  "total_aceite"
     t.string   "sistema_enfriamiento"
     t.boolean  "mampara"
-    t.string   "cambiador_taps",              default: [],              array: true
     t.integer  "num_taps"
     t.string   "sistema_contra_incendios"
     t.string   "fosa_captadora_aceite"
     t.string   "tension_sistema"
-    t.string   "capacitancia",                default: [],              array: true
     t.string   "clase_exactitud"
     t.string   "tipo_expancion_aceite"
     t.string   "tipo_envolvente"
@@ -86,12 +84,24 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.string   "kv_nom_at"
     t.string   "kv_nom_bt"
     t.string   "kv_nom_terciario"
-    t.string   "porcentage_z",                default: [],              array: true
     t.date     "fecha_puesta_servicio"
     t.integer  "transformer_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["transformer_id"], name: "index_phases_on_transformer_id", using: :btree
+  end
+
+  create_table "react_mouthpieces", force: :cascade do |t|
+    t.string   "marca"
+    t.string   "tipo"
+    t.string   "num_serie"
+    t.string   "kv"
+    t.string   "amp"
+    t.date     "fecha_fabricacion"
+    t.integer  "reactor_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["reactor_id"], name: "index_react_mouthpieces_on_reactor_id", using: :btree
   end
 
   create_table "reactors", force: :cascade do |t|
@@ -105,10 +115,9 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.integer  "kv_nom_bt"
     t.integer  "kv_nom_terciario"
     t.date     "fecha_fabricacion"
-    t.string   "porcentaje_z",          default: [],              array: true
     t.date     "fecha_puesta_servicio"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "substations", force: :cascade do |t|
@@ -144,6 +153,17 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "tap_changers", force: :cascade do |t|
+    t.string   "marca"
+    t.string   "tipo"
+    t.string   "serie"
+    t.string   "num_pasos"
+    t.integer  "phase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phase_id"], name: "index_tap_changers_on_phase_id", using: :btree
+  end
+
   create_table "trans_mouthpieces", force: :cascade do |t|
     t.string   "marca"
     t.string   "tipo"
@@ -168,5 +188,7 @@ ActiveRecord::Schema.define(version: 20170830213901) do
   end
 
   add_foreign_key "phases", "transformers"
+  add_foreign_key "react_mouthpieces", "reactors"
+  add_foreign_key "tap_changers", "phases"
   add_foreign_key "trans_mouthpieces", "phases"
 end

@@ -2,63 +2,70 @@
 
 <p>
   <strong>Nomenclatura:</strong>
-  <%= @equipment_reactor.nomenclatura %>
+  <%= @reactor.nomenclatura %>
 </p>
 
 <p>
   <strong>Reactor type:</strong>
-  <%= @equipment_reactor.reactor_type %>
+  <%= @reactor.reactor_type %>
 </p>
 
 <p>
   <strong>Marca:</strong>
-  <%= @equipment_reactor.marca %>
+  <%= @reactor.marca %>
 </p>
 
 <p>
   <strong>Num serie:</strong>
-  <%= @equipment_reactor.num_serie %>
+  <%= @reactor.num_serie %>
 </p>
 
 <p>
   <strong>Mva:</strong>
-  <%= @equipment_reactor.mva %>
+  <%= @reactor.mva %>
 </p>
 
 <p>
   <strong>Clase enf:</strong>
-  <%= @equipment_reactor.clase_enf %>
+  <%= @reactor.clase_enf %>
 </p>
 
 <p>
   <strong>Kv nom at:</strong>
-  <%= @equipment_reactor.kv_nom_at %>
+  <%= @reactor.kv_nom_at %>
 </p>
 
 <p>
   <strong>Kv nom bt:</strong>
-  <%= @equipment_reactor.kv_nom_bt %>
+  <%= @reactor.kv_nom_bt %>
 </p>
 
 <p>
   <strong>Kv nom terciario:</strong>
-  <%= @equipment_reactor.kv_nom_terciario %>
+  <%= @reactor.kv_nom_terciario %>
 </p>
 
 <p>
   <strong>Fecha fabricacion:</strong>
-  <%= @equipment_reactor.fecha_fabricacion %>
-</p>
-
-<p>
-  <strong>Porcentaje z:</strong>
-  <%= @equipment_reactor.porcentaje_z %>
+  <%= @reactor.fecha_fabricacion %>
 </p>
 
 <p>
   <strong>Fecha puesta servicio:</strong>
-  <%= @equipment_reactor.fecha_puesta_servicio %>
+  <%= @reactor.fecha_puesta_servicio %>
 </p>
 
-<%= link_to 'Edit', edit_equipment_reactor_path(@equipment_reactor) %> |
+ <p>
+  <strong>Boquillas </strong>
+    <%  @reactor.react_mouthpieces.each do |t| %>
+        <li> <%= t.marca %> </li>
+        <li> <%= t.tipo %> </li>
+        <li> <%= t.num_serie %> </li>
+        <li> <%= t.kv %> </li>
+        <li> <%= t.amp %> </li>
+        <li> <%= t.fecha_fabricacion %> </li>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_reactor_path(@reactor) %> |
 <%= link_to 'Back', equipment_reactors_path %>
