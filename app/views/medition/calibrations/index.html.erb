@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Calibraciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha calibracion</th>
+      <th>Fecha vencimiento</th>
+      <th>Equipo de medición</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calibrations.each do |calibration| %>
+      <tr>
+        <td><%= calibration.fecha_calibracion %></td>
+        <td><%= calibration.fecha_vencimiento %></td>
+        <td><%= calibration.measurement_equipment.num_serie %></td>
+        <td><%= link_to 'Show', medition_calibration_path(calibration) %></td>
+        <td><%= link_to 'Edit', edit_medition_calibration_path(calibration) %></td>
+        <td><%= link_to 'Destroy', medition_calibration_path(calibration), method: :delete, data: { confirm: 'Seguro de eliminar este elemento?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Calibracion', new_medition_calibration_path %>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubstationTest < ActiveSupport::TestCase
+class Medition::CalibrationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830213901) do
+ActiveRecord::Schema.define(version: 20170831163549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "calibrations", force: :cascade do |t|
+    t.date     "fecha_calibracion"
+    t.date     "fecha_vencimiento"
+    t.integer  "measurement_equipment_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["measurement_equipment_id"], name: "index_calibrations_on_measurement_equipment_id", using: :btree
+  end
+
   create_table "lightning_arresters", force: :cascade do |t|
     t.string   "nomenclatura"
     t.integer  "num_secciones"
@@ -55,6 +64,16 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.date     "fecha_puesta_servicio"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "measurement_equipments", force: :cascade do |t|
+    t.integer  "equipo_medicion_type"
+    t.string   "modelo"
+    t.string   "marca"
+    t.string   "num_serie"
+    t.string   "num_inv_eimp"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "phases", force: :cascade do |t|
@@ -120,19 +139,6 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.datetime "updated_at",            null: false
   end
 
-  create_table "substations", force: :cascade do |t|
-    t.string   "nombre_subestacion"
-    t.string   "subestacion_abbr"
-    t.string   "direccion"
-    t.string   "extencion"
-    t.string   "encargado_nombre"
-    t.string   "encargado_apellidos"
-    t.string   "capacidad"
-    t.date     "fecha_puesta_servicio"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
   create_table "switches", force: :cascade do |t|
     t.string   "nomenclatura"
     t.integer  "interruptor_type"
@@ -187,6 +193,7 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.datetime "updated_at",            null: false
   end
 
+  add_foreign_key "calibrations", "measurement_equipments"
   add_foreign_key "phases", "transformers"
   add_foreign_key "react_mouthpieces", "reactors"
   add_foreign_key "tap_changers", "phases"
