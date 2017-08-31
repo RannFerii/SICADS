@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomenclatura:</strong>
+  <%= @blade.nomenclatura %>
+</p>
+
+<p>
+  <strong>Tipo de Cuchilla :</strong>
+  <%= @blade.cuchilla_type %>
+</p>
+
+<p>
+  <strong>Tipo de Mecanismo :</strong>
+  <%= @blade.mecanismo_type %>
+</p>
+
+<p>
+  <strong>Nivel basico impulso:</strong>
+  <%= @blade.nivel_basico_impulso %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @blade.marca %>
+</p>
+
+<p>
+  <strong>Num serie:</strong>
+  <%= @blade.num_serie %>
+</p>
+
+<p>
+  <strong>Kv nom:</strong>
+  <%= @blade.kv_nom %>
+</p>
+
+<p>
+  <strong>Amp nom:</strong>
+  <%= @blade.amp_nom %>
+</p>
+
+<p>
+  <strong>Tension sistema:</strong>
+  <%= @blade.tension_sistema %>
+</p>
+
+<p>
+  <strong>Fecha puesta servicio:</strong>
+  <%= @blade.fecha_puesta_servicio %>
+</p>
+
+<p>
+  <strong>Fecha fabricacion:</strong>
+  <%= @blade.fecha_fabricacion %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_blade_path(@blade) %> |
+<%= link_to 'Back', equipment_blades_path %>

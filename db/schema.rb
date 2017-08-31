@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830180157) do
+ActiveRecord::Schema.define(version: 20170830213901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "battery_banks", force: :cascade do |t|
+    t.string   "nomenclatura"
+    t.string   "marca"
+    t.integer  "banco_baterias_type"
+    t.integer  "num_celdas"
+    t.string   "capacidad_ah"
+    t.string   "volts_totales"
+    t.date     "fecha_puesta_servicio"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "blades", force: :cascade do |t|
+    t.string   "nomenclatura"
+    t.string   "cuchilla_type"
+    t.string   "mecanismo_type"
+    t.string   "nivel_basico_impulso"
+    t.string   "marca"
+    t.string   "num_serie"
+    t.string   "kv_nom"
+    t.string   "amp_nom"
+    t.string   "tension_sistema"
+    t.date     "fecha_puesta_servicio"
+    t.date     "fecha_fabricacion"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "lightning_arresters", force: :cascade do |t|
+    t.string   "nomenclatura"
+    t.integer  "num_secciones"
+    t.integer  "apartarrayos_type"
+    t.string   "descarga_ka"
+    t.string   "kv_sist"
+    t.string   "marca"
+    t.string   "num_serie"
+    t.date     "fecha_fabricacion"
+    t.date     "fecha_puesta_servicio"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "phases", force: :cascade do |t|
     t.integer  "fase"
@@ -89,6 +131,26 @@ ActiveRecord::Schema.define(version: 20170830180157) do
     t.date     "fecha_puesta_servicio"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "switches", force: :cascade do |t|
+    t.string   "nomenclatura"
+    t.integer  "interruptor_type"
+    t.integer  "mecanismo_type"
+    t.string   "marca"
+    t.string   "voltaje_control"
+    t.string   "tension_fuerza"
+    t.string   "tension_sistema"
+    t.string   "num_serie"
+    t.string   "kv_nom"
+    t.string   "amp_nom"
+    t.string   "capacidad_interruptiva"
+    t.string   "nivel_basico_impulso"
+    t.string   "medio_ext"
+    t.date     "fecha_fabricacion"
+    t.date     "fecha_puesta_servicio"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "tap_changers", force: :cascade do |t|

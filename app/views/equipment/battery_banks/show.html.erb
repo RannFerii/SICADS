@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomenclatura:</strong>
+  <%= @battery_bank.nomenclatura %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @battery_bank.marca %>
+</p>
+
+<p>
+  <strong>Tipo de Banco baterias :</strong>
+  <%= @battery_bank.banco_baterias_type %>
+</p>
+
+<p>
+  <strong>Num celdas:</strong>
+  <%= @battery_bank.num_celdas %>
+</p>
+
+<p>
+  <strong>Capacidad ah:</strong>
+  <%= @battery_bank.capacidad_ah %>
+</p>
+
+<p>
+  <strong>Volts totales:</strong>
+  <%= @battery_bank.volts_totales %>
+</p>
+
+<p>
+  <strong>Fecha puesta servicio:</strong>
+  <%= @battery_bank.fecha_puesta_servicio %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_battery_bank_path(@battery_bank) %> |
+<%= link_to 'Back', equipment_battery_banks_path %>

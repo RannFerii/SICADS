@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomenclatura:</strong>
+  <%= @switch.nomenclatura %>
+</p>
+
+<p>
+  <strong>Tipo de Interruptor :</strong>
+  <%= @switch.interruptor_type %>
+</p>
+
+<p>
+  <strong>Tipo de Mecanismo :</strong>
+  <%= @switch.mecanismo_type %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @switch.marca %>
+</p>
+
+<p>
+  <strong>Voltaje control:</strong>
+  <%= @switch.voltaje_control %>
+</p>
+
+<p>
+  <strong>Tension fuerza:</strong>
+  <%= @switch.tension_fuerza %>
+</p>
+
+<p>
+  <strong>Tension sistema:</strong>
+  <%= @switch.tension_sistema %>
+</p>
+
+<p>
+  <strong>Número serie:</strong>
+  <%= @switch.num_serie %>
+</p>
+
+<p>
+  <strong>Kv nom:</strong>
+  <%= @switch.kv_nom %>
+</p>
+
+<p>
+  <strong>Amp nom:</strong>
+  <%= @switch.amp_nom %>
+</p>
+
+<p>
+  <strong>Capacidad interruptiva:</strong>
+  <%= @switch.capacidad_interruptiva %>
+</p>
+
+<p>
+  <strong>Nivel basico impulso:</strong>
+  <%= @switch.nivel_basico_impulso %>
+</p>
+
+<p>
+  <strong>Medio ext:</strong>
+  <%= @switch.medio_ext %>
+</p>
+
+<p>
+  <strong>Fecha fabricacion:</strong>
+  <%= @switch.fecha_fabricacion %>
+</p>
+
+<p>
+  <strong>Fecha puesta servicio:</strong>
+  <%= @switch.fecha_puesta_servicio %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_switch_path(@switch) %> |
+<%= link_to 'Back', equipment_switches_path %>

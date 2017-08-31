@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomenclatura:</strong>
+  <%= @lightning_arrester.nomenclatura %>
+</p>
+
+<p>
+  <strong>Numero de secciones:</strong>
+  <%= @lightning_arrester.num_secciones %>
+</p>
+
+<p>
+  <strong>Tipo de Apartarrayos :</strong>
+  <%= @lightning_arrester.apartarrayos_type %>
+</p>
+
+<p>
+  <strong>Descarga ka:</strong>
+  <%= @lightning_arrester.descarga_ka %>
+</p>
+
+<p>
+  <strong>Kv sist:</strong>
+  <%= @lightning_arrester.kv_sist %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @lightning_arrester.marca %>
+</p>
+
+<p>
+  <strong>Numero serie:</strong>
+  <%= @lightning_arrester.num_serie %>
+</p>
+
+<p>
+  <strong>Fecha fabricacion:</strong>
+  <%= @lightning_arrester.fecha_fabricacion %>
+</p>
+
+<p>
+  <strong>Fecha puesta servicio:</strong>
+  <%= @lightning_arrester.fecha_puesta_servicio %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_lightning_arrester_path(@lightning_arrester) %> |
+<%= link_to 'Back', equipment_lightning_arresters_path %>
