@@ -2,7 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :equipo_medicion_type %>
+    <%= f.label :tipo_de_equipo_de_medición %>
+    <%= f.select :equipo_medicion_type, MeasurementEquipment.equipo_medicion_types.keys.to_a, { prompt: '- Seleccionar -' } %>
     <%= f.input :modelo %>
     <%= f.input :marca %>
     <%= f.input :num_serie %>
