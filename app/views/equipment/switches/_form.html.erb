@@ -1,0 +1,25 @@
+<%= simple_form_for(@equipment_switch) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nomenclatura %>
+    <%= f.input :interruptor_type %>
+    <%= f.input :mecanismo_type %>
+    <%= f.input :marca %>
+    <%= f.input :voltaje_control %>
+    <%= f.input :tension_fuerza %>
+    <%= f.input :tension_sistema %>
+    <%= f.input :num_serie %>
+    <%= f.input :kv_nom %>
+    <%= f.input :amp_nom %>
+    <%= f.input :capacidad_interruptiva %>
+    <%= f.input :nivel_basico_impulso %>
+    <%= f.input :medio_ext %>
+    <%= f.input :fecha_fabricacion %>
+    <%= f.input :fecha_puesta_servicio %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

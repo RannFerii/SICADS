@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equipment Battery Banks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nomenclatura</th>
+      <th>Marca</th>
+      <th>Banco baterias type</th>
+      <th>Num celdas</th>
+      <th>Capacidad ah</th>
+      <th>Volts totales</th>
+      <th>Fecha puesta servicio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipment_battery_banks.each do |equipment_battery_bank| %>
+      <tr>
+        <td><%= equipment_battery_bank.nomenclatura %></td>
+        <td><%= equipment_battery_bank.marca %></td>
+        <td><%= equipment_battery_bank.banco_baterias_type %></td>
+        <td><%= equipment_battery_bank.num_celdas %></td>
+        <td><%= equipment_battery_bank.capacidad_ah %></td>
+        <td><%= equipment_battery_bank.volts_totales %></td>
+        <td><%= equipment_battery_bank.fecha_puesta_servicio %></td>
+        <td><%= link_to 'Show', equipment_battery_bank %></td>
+        <td><%= link_to 'Edit', edit_equipment_battery_bank_path(equipment_battery_bank) %></td>
+        <td><%= link_to 'Destroy', equipment_battery_bank, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment Battery Bank', new_equipment_battery_bank_path %>

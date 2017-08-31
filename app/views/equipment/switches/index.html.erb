@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equipment Switches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nomenclatura</th>
+      <th>Interruptor type</th>
+      <th>Mecanismo type</th>
+      <th>Marca</th>
+      <th>Voltaje control</th>
+      <th>Tension fuerza</th>
+      <th>Tension sistema</th>
+      <th>Num serie</th>
+      <th>Kv nom</th>
+      <th>Amp nom</th>
+      <th>Capacidad interruptiva</th>
+      <th>Nivel basico impulso</th>
+      <th>Medio ext</th>
+      <th>Fecha fabricacion</th>
+      <th>Fecha puesta servicio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipment_switches.each do |equipment_switch| %>
+      <tr>
+        <td><%= equipment_switch.nomenclatura %></td>
+        <td><%= equipment_switch.interruptor_type %></td>
+        <td><%= equipment_switch.mecanismo_type %></td>
+        <td><%= equipment_switch.marca %></td>
+        <td><%= equipment_switch.voltaje_control %></td>
+        <td><%= equipment_switch.tension_fuerza %></td>
+        <td><%= equipment_switch.tension_sistema %></td>
+        <td><%= equipment_switch.num_serie %></td>
+        <td><%= equipment_switch.kv_nom %></td>
+        <td><%= equipment_switch.amp_nom %></td>
+        <td><%= equipment_switch.capacidad_interruptiva %></td>
+        <td><%= equipment_switch.nivel_basico_impulso %></td>
+        <td><%= equipment_switch.medio_ext %></td>
+        <td><%= equipment_switch.fecha_fabricacion %></td>
+        <td><%= equipment_switch.fecha_puesta_servicio %></td>
+        <td><%= link_to 'Show', equipment_switch %></td>
+        <td><%= link_to 'Edit', edit_equipment_switch_path(equipment_switch) %></td>
+        <td><%= link_to 'Destroy', equipment_switch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment Switch', new_equipment_switch_path %>

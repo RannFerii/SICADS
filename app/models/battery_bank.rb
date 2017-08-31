@@ -1,0 +1,2 @@
+class BatteryBank < ApplicationRecord
+end
