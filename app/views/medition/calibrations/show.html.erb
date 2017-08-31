@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha calibracion:</strong>
+  <%= @calibration.fecha_calibracion %>
+</p>
+
+<p>
+  <strong>Fecha vencimiento:</strong>
+  <%= @calibration.fecha_vencimiento %>
+</p>
+
+<p>
+  <strong>Measurement equipment número de serie :</strong>
+  <%= @calibration.measurement_equipment.num_serie %>
+</p>
+
+<%= link_to 'Edit', edit_medition_calibration_path(@calibration) %> |
+<%= link_to 'Back', medition_calibrations_path %>

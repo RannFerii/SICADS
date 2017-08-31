@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo de  Equipo medición :</strong>
+  <%= @measurement_equipment.equipo_medicion_type %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @measurement_equipment.modelo %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @measurement_equipment.marca %>
+</p>
+
+<p>
+  <strong>Número de serie:</strong>
+  <%= @measurement_equipment.num_serie %>
+</p>
+
+<p>
+  <strong>Num inv eimp:</strong>
+  <%= @measurement_equipment.num_inv_eimp %>
+</p>
+
+<%= link_to 'Edit', edit_medition_measurement_equipment_path(@measurement_equipment) %> |
+<%= link_to 'Back', medition_measurement_equipments_path %>

@@ -1,0 +1,14 @@
+<%= simple_form_for(['medition',@calibration]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :fecha_calibracion %>
+    <%= f.input :fecha_vencimiento %>
+    <%= f.label :modelo_de_equipo_de_medición %>
+    <%= f.select :measurement_equipment_id , MeasurementEquipment.all.map { |u| [u.num_serie, u.id ]}, { prompt: '- Seleccionar -' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
