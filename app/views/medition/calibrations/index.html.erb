@@ -17,7 +17,7 @@
       <tr>
         <td><%= calibration.fecha_calibracion %></td>
         <td><%= calibration.fecha_vencimiento %></td>
-        <td><%= calibration.measurement_equipment %></td>
+        <td><%= calibration.measurement_equipment.num_serie %></td>
         <td><%= link_to 'Show', medition_calibration_path(calibration) %></td>
         <td><%= link_to 'Edit', edit_medition_calibration_path(calibration) %></td>
         <td><%= link_to 'Destroy', medition_calibration_path(calibration), method: :delete, data: { confirm: 'Seguro de eliminar este elemento?' } %></td>
