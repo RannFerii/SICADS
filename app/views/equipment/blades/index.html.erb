@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Equipment Blades</h1>
+<h1>Cuchillas</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nomenclatura</th>
-      <th>Cuchilla type</th>
-      <th>Mecanismo type</th>
+      <th>Tipo de Cuchilla </th>
+      <th>Tipo de Mecanismo </th>
       <th>Nivel basico impulso</th>
       <th>Marca</th>
       <th>Num serie</th>
@@ -21,22 +21,22 @@
   </thead>
 
   <tbody>
-    <% @equipment_blades.each do |equipment_blade| %>
+    <% @blades.each do |blade| %>
       <tr>
-        <td><%= equipment_blade.nomenclatura %></td>
-        <td><%= equipment_blade.cuchilla_type %></td>
-        <td><%= equipment_blade.mecanismo_type %></td>
-        <td><%= equipment_blade.nivel_basico_impulso %></td>
-        <td><%= equipment_blade.marca %></td>
-        <td><%= equipment_blade.num_serie %></td>
-        <td><%= equipment_blade.kv_nom %></td>
-        <td><%= equipment_blade.amp_nom %></td>
-        <td><%= equipment_blade.tension_sistema %></td>
-        <td><%= equipment_blade.fecha_puesta_servicio %></td>
-        <td><%= equipment_blade.fecha_fabricacion %></td>
-        <td><%= link_to 'Show', equipment_blade %></td>
-        <td><%= link_to 'Edit', edit_equipment_blade_path(equipment_blade) %></td>
-        <td><%= link_to 'Destroy', equipment_blade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= blade.nomenclatura %></td>
+        <td><%= blade.cuchilla_type %></td>
+        <td><%= blade.mecanismo_type %></td>
+        <td><%= blade.nivel_basico_impulso %></td>
+        <td><%= blade.marca %></td>
+        <td><%= blade.num_serie %></td>
+        <td><%= blade.kv_nom %></td>
+        <td><%= blade.amp_nom %></td>
+        <td><%= blade.tension_sistema %></td>
+        <td><%= blade.fecha_puesta_servicio %></td>
+        <td><%= blade.fecha_fabricacion %></td>
+        <td><%= link_to 'Show', equipment_blade_path(blade) %></td>
+        <td><%= link_to 'Edit', edit_equipment_blade_path(blade) %></td>
+        <td><%= link_to 'Destroy', equipment_blade_path(blade), method: :delete, data: { confirm: 'Seguro de eliminar este elemento?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Equipment Blade', new_equipment_blade_path %>
+<%= link_to 'Nueva Cuchilla', new_equipment_blade_path %>

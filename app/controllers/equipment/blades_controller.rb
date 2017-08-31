@@ -41,8 +41,8 @@ class Equipment::BladesController < ApplicationController
   # PATCH/PUT /equipment/blades/1.json
   def update
     respond_to do |format|
-      if @equipment_blade.update(equipment_blade_params)
-        format.html { redirect_to @equipment_blade, notice: 'La cuchilla fue actualizada exitosamente.' }
+      if @blade.update(blade_params)
+        format.html { redirect_to ['equipment',@blade], notice: 'La cuchilla fue actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @blade }
       else
         format.html { render :edit }

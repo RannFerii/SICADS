@@ -37,7 +37,7 @@
         <td><%= reactor.fecha_puesta_servicio %></td>
         <td><%= link_to 'Show',  equipment_reactor_path(reactor) %></td>
         <td><%= link_to 'Edit', edit_equipment_reactor_path(reactor) %></td>
-        <td><%= link_to 'Destroy', equipment_reactor_path(reactor), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', equipment_reactor_path(reactor), method: :delete, data: { confirm: 'Seguro de eliminar este elemento?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -45,4 +45,4 @@
 
 <br>
 
-<%= link_to 'New Equipment Reactor', new_equipment_reactor_path %>
+<%= link_to 'Nuevo Reactor', new_equipment_reactor_path %>

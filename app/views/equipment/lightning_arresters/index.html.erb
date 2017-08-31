@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Equipment Lightning Arresters</h1>
+<h1>Apartarrayos</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nomenclatura</th>
-      <th>Num secciones</th>
-      <th>Apartarrayos type</th>
+      <th>Numero de  secciones</th>
+      <th>Tipo de Apartarrayos </th>
       <th>Descarga ka</th>
       <th>Kv sist</th>
       <th>Marca</th>
-      <th>Num serie</th>
+      <th>Numero serie</th>
       <th>Fecha fabricacion</th>
       <th>Fecha puesta servicio</th>
       <th colspan="3"></th>
@@ -19,20 +19,20 @@
   </thead>
 
   <tbody>
-    <% @equipment_lightning_arresters.each do |equipment_lightning_arrester| %>
+    <% @lightning_arresters.each do |lightning_arrester| %>
       <tr>
-        <td><%= equipment_lightning_arrester.nomenclatura %></td>
-        <td><%= equipment_lightning_arrester.num_secciones %></td>
-        <td><%= equipment_lightning_arrester.apartarrayos_type %></td>
-        <td><%= equipment_lightning_arrester.descarga_ka %></td>
-        <td><%= equipment_lightning_arrester.kv_sist %></td>
-        <td><%= equipment_lightning_arrester.marca %></td>
-        <td><%= equipment_lightning_arrester.num_serie %></td>
-        <td><%= equipment_lightning_arrester.fecha_fabricacion %></td>
-        <td><%= equipment_lightning_arrester.fecha_puesta_servicio %></td>
-        <td><%= link_to 'Show', equipment_lightning_arrester %></td>
-        <td><%= link_to 'Edit', edit_equipment_lightning_arrester_path(equipment_lightning_arrester) %></td>
-        <td><%= link_to 'Destroy', equipment_lightning_arrester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= lightning_arrester.nomenclatura %></td>
+        <td><%= lightning_arrester.num_secciones %></td>
+        <td><%= lightning_arrester.apartarrayos_type %></td>
+        <td><%= lightning_arrester.descarga_ka %></td>
+        <td><%= lightning_arrester.kv_sist %></td>
+        <td><%= lightning_arrester.marca %></td>
+        <td><%= lightning_arrester.num_serie %></td>
+        <td><%= lightning_arrester.fecha_fabricacion %></td>
+        <td><%= lightning_arrester.fecha_puesta_servicio %></td>
+        <td><%= link_to 'Show', equipment_lightning_arrester_path(lightning_arrester) %></td>
+        <td><%= link_to 'Edit', edit_equipment_lightning_arrester_path(lightning_arrester) %></td>
+        <td><%= link_to 'Destroy', equipment_lightning_arrester_path(lightning_arrester), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Equipment Lightning Arrester', new_equipment_lightning_arrester_path %>
+<%= link_to 'Nuevo Apartarrayos', new_equipment_lightning_arrester_path %>

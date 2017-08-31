@@ -42,7 +42,7 @@ class Equipment::SwitchesController < ApplicationController
   def update
     respond_to do |format|
       if @switch.update(switch_params)
-        format.html { redirect_to @switch, notice: 'El switch fue actualizado exitosamente' }
+        format.html { redirect_to ['equipment',@switch], notice: 'El switch fue actualizado exitosamente' }
         format.json { render :show, status: :ok, location: @switch }
       else
         format.html { render :edit }

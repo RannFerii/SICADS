@@ -1,10 +1,12 @@
-<%= simple_form_for(@equipment_switch) do |f| %>
+<%= simple_form_for(['equipment',@switch]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :nomenclatura %>
-    <%= f.input :interruptor_type %>
-    <%= f.input :mecanismo_type %>
+    <%= f.label :interruptor_type %>
+    <%= f.select :interruptor_type, Switch.interruptor_types.keys.to_a, { prompt: '- Seleccionar -' } %>
+    <%= f.label :mecanismo_type %>
+    <%= f.select :mecanismo_type, Switch.mecanismo_types.keys.to_a, { prompt: '- Seleccionar -' } %>
     <%= f.input :marca %>
     <%= f.input :voltaje_control %>
     <%= f.input :tension_fuerza %>

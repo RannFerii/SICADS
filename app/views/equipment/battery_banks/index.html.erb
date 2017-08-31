@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Equipment Battery Banks</h1>
+<h1>Bancos de Baterias</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nomenclatura</th>
       <th>Marca</th>
-      <th>Banco baterias type</th>
+      <th>Tipo de Banco baterias</th>
       <th>Num celdas</th>
       <th>Capacidad ah</th>
       <th>Volts totales</th>
@@ -17,18 +17,18 @@
   </thead>
 
   <tbody>
-    <% @equipment_battery_banks.each do |equipment_battery_bank| %>
+    <% @battery_banks.each do |battery_bank| %>
       <tr>
-        <td><%= equipment_battery_bank.nomenclatura %></td>
-        <td><%= equipment_battery_bank.marca %></td>
-        <td><%= equipment_battery_bank.banco_baterias_type %></td>
-        <td><%= equipment_battery_bank.num_celdas %></td>
-        <td><%= equipment_battery_bank.capacidad_ah %></td>
-        <td><%= equipment_battery_bank.volts_totales %></td>
-        <td><%= equipment_battery_bank.fecha_puesta_servicio %></td>
-        <td><%= link_to 'Show', equipment_battery_bank %></td>
-        <td><%= link_to 'Edit', edit_equipment_battery_bank_path(equipment_battery_bank) %></td>
-        <td><%= link_to 'Destroy', equipment_battery_bank, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= battery_bank.nomenclatura %></td>
+        <td><%= battery_bank.marca %></td>
+        <td><%= battery_bank.banco_baterias_type %></td>
+        <td><%= battery_bank.num_celdas %></td>
+        <td><%= battery_bank.capacidad_ah %></td>
+        <td><%= battery_bank.volts_totales %></td>
+        <td><%= battery_bank.fecha_puesta_servicio %></td>
+        <td><%= link_to 'Show', equipment_battery_bank_path(battery_bank) %></td>
+        <td><%= link_to 'Edit', edit_equipment_battery_bank_path(battery_bank) %></td>
+        <td><%= link_to 'Destroy',equipment_battery_bank_path(battery_bank), method: :delete, data: { confirm: 'Seguro de eliminar este elemento?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Equipment Battery Bank', new_equipment_battery_bank_path %>
+<%= link_to 'Nuevo Banco de Baterías', new_equipment_battery_bank_path %>
