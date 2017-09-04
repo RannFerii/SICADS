@@ -2,8 +2,12 @@ class Equipment::BatteryBanksController < ApplicationController
   before_action :set_battery_bank, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_filter :admin_only, :except => [:show,:index]
-
-
+    def admin_only
+      unless current_user.admin?
+       redirect_to   equipment_battery_banks_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
 
   # GET /equipment/battery_banks
   # GET /equipment/battery_banks.json

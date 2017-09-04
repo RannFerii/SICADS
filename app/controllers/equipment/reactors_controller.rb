@@ -4,6 +4,12 @@ class Equipment::ReactorsController < ApplicationController
   before_filter :admin_only, :except => [:show,:index]
   # GET /equipment/reactors
   # GET /equipment/reactors.json
+    def admin_only
+      unless current_user.admin?
+       redirect_to   equipment_reactors_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
   def index
     @reactors = Reactor.all
   end

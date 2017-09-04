@@ -1,6 +1,13 @@
 class Equipment::SwitchesController < ApplicationController
   before_action :set_switch, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
+    def admin_only
+      unless current_user.admin?
+       redirect_to   equipment_switches_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
   # GET /equipment/switches
   # GET /equipment/switches.json
   def index

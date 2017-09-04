@@ -1,6 +1,15 @@
 class Medition::MeasurementEquipmentsController < ApplicationController
   before_action :set_measurement_equipment, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
+    before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
+    def admin_only
+      unless current_user.admin?
+       redirect_to   equipment_measurement_equipments_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
   # GET /medition/measurement_equipments
   # GET /medition/measurement_equipments.json
   def index
