@@ -50,6 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #FrontEnd
 gem 'bootstrap-sass'
 #Backend
+gem 'devise'
 gem 'pg', '~> 0.18'
 gem 'simple_form'
 gem 'cocoon'

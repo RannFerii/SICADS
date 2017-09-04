@@ -1,5 +1,9 @@
 class Equipment::BatteryBanksController < ApplicationController
   before_action :set_battery_bank, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
+
+
 
   # GET /equipment/battery_banks
   # GET /equipment/battery_banks.json

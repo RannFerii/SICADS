@@ -1,6 +1,7 @@
 class Equipment::ReactorsController < ApplicationController
   before_action :set_reactor, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
   # GET /equipment/reactors
   # GET /equipment/reactors.json
   def index

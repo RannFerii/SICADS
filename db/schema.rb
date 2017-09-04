@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830213901) do
+ActiveRecord::Schema.define(version: 20170901163951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "calibrations", force: :cascade do |t|
+    t.date     "fecha_calibracion"
+    t.date     "fecha_vencimiento"
+    t.integer  "measurement_equipment_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["measurement_equipment_id"], name: "index_calibrations_on_measurement_equipment_id", using: :btree
+  end
+
   create_table "lightning_arresters", force: :cascade do |t|
     t.string   "nomenclatura"
     t.integer  "num_secciones"
@@ -55,6 +64,16 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.date     "fecha_puesta_servicio"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "measurement_equipments", force: :cascade do |t|
+    t.integer  "equipo_medicion_type"
+    t.string   "modelo"
+    t.string   "marca"
+    t.string   "num_serie"
+    t.string   "num_inv_eimp"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "phases", force: :cascade do |t|
@@ -187,6 +206,29 @@ ActiveRecord::Schema.define(version: 20170830213901) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "rpe",                    default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "nombre"
+    t.string   "apellido_paterno"
+    t.string   "apellido_materno"
+    t.integer  "role"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  add_foreign_key "calibrations", "measurement_equipments"
   add_foreign_key "phases", "transformers"
   add_foreign_key "react_mouthpieces", "reactors"
   add_foreign_key "tap_changers", "phases"

@@ -1,2 +1,2 @@
-class Equipment::LightningArrester < ApplicationRecord
+class LightningArrester < ApplicationRecord
 end
