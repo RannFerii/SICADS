@@ -1,6 +1,7 @@
 class Equipment::BladesController < ApplicationController
   before_action :set_blade, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
   # GET /equipment/blades
   # GET /equipment/blades.json
   def index

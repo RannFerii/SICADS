@@ -1,6 +1,7 @@
 class Equipment::TransformersController < ApplicationController
   before_action :set_transformer, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
   # GET /equipment/transformers
   # GET /equipment/transformers.json
   def index
