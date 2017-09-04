@@ -139,19 +139,6 @@ ActiveRecord::Schema.define(version: 20170901163951) do
     t.datetime "updated_at",            null: false
   end
 
-  create_table "substations", force: :cascade do |t|
-    t.string   "nombre_subestacion"
-    t.string   "subestacion_abbr"
-    t.string   "direccion"
-    t.string   "extencion"
-    t.string   "encargado_nombre"
-    t.string   "encargado_apellidos"
-    t.string   "capacidad"
-    t.date     "fecha_puesta_servicio"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
   create_table "switches", force: :cascade do |t|
     t.string   "nomenclatura"
     t.integer  "interruptor_type"

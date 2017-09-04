@@ -1,0 +1,15 @@
+<%= simple_form_for(['medition',@measurement_equipment]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :equipo_medicion_type %>
+    <%= f.input :modelo %>
+    <%= f.input :marca %>
+    <%= f.input :num_serie %>
+    <%= f.input :num_inv_eimp %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

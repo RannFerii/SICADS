@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equipo de Medición</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de Equipo medicion </th>
+      <th>Modelo</th>
+      <th>Marca</th>
+      <th>Número de serie</th>
+      <th>Número de  inventario eimp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measurement_equipments.each do |measurement_equipment| %>
+      <tr>
+        <td><%= measurement_equipment.equipo_medicion_type %></td>
+        <td><%= measurement_equipment.modelo %></td>
+        <td><%= measurement_equipment.marca %></td>
+        <td><%= measurement_equipment.num_serie %></td>
+        <td><%= measurement_equipment.num_inv_eimp %></td>
+        <td><%= link_to 'Show', medition_measurement_equipment_path(measurement_equipment) %></td>
+        <td><%= link_to 'Edit', edit_medition_measurement_equipment_path(measurement_equipment) %></td>
+        <td><%= link_to 'Destroy', medition_measurement_equipment_path(measurement_equipment), method: :delete, data: { confirm: 'Seguro de eliminar este elemento?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Equipo de Medición', new_medition_measurement_equipment_path %>
