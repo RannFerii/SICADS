@@ -2,6 +2,13 @@ class Equipment::TransformersController < ApplicationController
   before_action :set_transformer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_filter :admin_only, :except => [:show,:index]
+
+    def admin_only
+      unless current_user.admin?
+       redirect_to   equipment_transformers_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
   # GET /equipment/transformers
   # GET /equipment/transformers.json
   def index

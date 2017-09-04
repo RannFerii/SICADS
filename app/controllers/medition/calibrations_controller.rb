@@ -1,6 +1,14 @@
 class Medition::CalibrationsController < ApplicationController
   before_action :set_calibration, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
 
+    def admin_only
+      unless current_user.admin?
+       redirect_to   equipment_calibrations_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
   # GET /medition/calibrations
   # GET /medition/calibrations.json
   def index

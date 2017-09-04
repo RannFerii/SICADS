@@ -4,6 +4,12 @@ class Equipment::LightningArrestersController < ApplicationController
   before_filter :admin_only, :except => [:show,:index]
   # GET /equipment/lightning_arresters
   # GET /equipment/lightning_arresters.json
+    def admin_only
+      unless current_user.admin?
+       redirect_to   equipment_lightning_arresters_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
   def index
     @lightning_arresters = LightningArrester.all
   end
