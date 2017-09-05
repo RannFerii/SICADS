@@ -1,5 +1,14 @@
 class Control::BaysController < ApplicationController
   before_action :set_bay, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
+
+    def admin_only
+      unless current_user.admin?
+       redirect_to   control_bays_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
 
   # GET /control/bays
   # GET /control/bays.json
