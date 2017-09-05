@@ -1,5 +1,14 @@
 class Control::SubstationsController < ApplicationController
   before_action :set_substation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_filter :admin_only, :except => [:show,:index]
+
+    def admin_only
+      unless current_user.admin?
+       redirect_to   control_substations_path
+       flash[:notice] = "Acceso Negado"
+      end
+    end
 
   # GET /control/substations
   # GET /control/substations.json
