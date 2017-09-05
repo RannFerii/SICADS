@@ -31,33 +31,35 @@
     <li> <%= t.marca %> </li>
     <li> <%= t.num_serie %> </li>
     <li> <%= t.fecha_fabricacion %> </li>
-    <li> <%= t.impedencia_max_hx_capacidad %> </li>
-    <li> <%= t.impedancia_max_hy_capacidad %> </li>
-    <li> <%= t.impedancia_max_xy_capacidad %> </li>
     <li> <%= t.relacion_transformacion %> </li>
-    <li> <%= t.capacidad %> </li>
-    <li> <%= t.transformacion %> </li>
+    <li> <%= t.capacidad_transformacion %> </li>
     <li> <%= t.masa_embarque %> </li>
     <li> <%= t.esquema_nucleo %> </li>
     <li> <%= t.total_aceite %> </li>
     <li> <%= t.sistema_enfriamiento %> </li>
     <li> <%= t.mampara %> </li>
-    <li> <%= t.cambiador_taps %> </li>
     <li> <%= t.num_taps %> </li>
     <li> <%= t.sistema_contra_incendios %> </li>
     <li> <%= t.fosa_captadora_aceite %> </li>
     <li> <%= t.tension_sistema %> </li>
-    <li> <%= t.capacitancia %> </li>
+    <li> <%= t.capacitancia_total %> </li>
     <li> <%= t.clase_exactitud %> </li>
     <li> <%= t.tipo_expancion_aceite %> </li>
     <li> <%= t.tipo_envolvente %> </li>
     <li> <%= t.mva %> </li>
-    <li> <%= t.kv_nom_at %> </li>
-    <li> <%= t.kv_nom_bt %> </li>
-    <li> <%= t.kv_nom_terciario %> </li>
-    <li> <%= t.porcentage_z %> </li>
     <li> <%= t.fecha_puesta_servicio %> </li>
   <% end %>
+   <p>
+  <strong>Devanados </strong>
+    <%  @transformer.windings.each do |t| %>
+        <li> <%= t.devanado_type %> </li>
+        <li> <%= t.devanado_kv %> </li>
+        <li> <%= t.porcentaje_z %> </li>
+        <li> <%= t.z_mva %> </li>
+        <li> <%= t.z_kv %> </li>
+        <li> <%= t.conexion_type %> </li>
+    <% end %>
+</p>
    <p>
   <strong>Cambiador de Taps </strong>
     <%  @transformer.tap_changers.each do |t| %>

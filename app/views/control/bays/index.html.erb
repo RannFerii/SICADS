@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Control Bays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nomenclatura</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bays.each do |bay| %>
+      <tr>
+        <td><%= bay.nomenclatura %></td>
+        <td><%= link_to 'Show', control_bay_path(bay) %></td>
+        <td><%= link_to 'Edit', edit_control_bay_path(bay) %></td>
+        <td><%= link_to 'Destroy', control_bay_path(bay), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Control Bay', new_control_bay_path %>

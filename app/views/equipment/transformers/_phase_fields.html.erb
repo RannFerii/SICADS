@@ -8,9 +8,6 @@
     <td><%= f.input :marca %></td>
     <td><%= f.input :num_serie %></td>
     <td><%= f.input :fecha_fabricacion %></td>
-    <td><%= f.input :impedencia_max_hx_capacidad %></td>
-    <td><%= f.input :impedancia_max_hy_capacidad %></td>
-    <td><%= f.input :impedancia_max_xy_capacidad %></td>
     <td><%= f.input :relacion_transformacion %></td>
     <td><%= f.input :capacidad_transformacion %></td>
     <td><%= f.input :masa_embarque %></td>
@@ -18,21 +15,27 @@
     <td><%= f.input :total_aceite %></td>
     <td><%= f.input :sistema_enfriamiento %></td>
     <td><%= f.input :mampara %></td>
-    <td><%= f.input :cambiador_taps %></td>
     <td><%= f.input :num_taps %></td>
     <td><%= f.input :sistema_contra_incendios %></td>
     <td><%= f.input :fosa_captadora_aceite %></td>
     <td><%= f.input :tension_sistema %></td>
-    <td><%= f.input :capacitancia %></td>
+    <td><%= f.input :capacitancia_total %></td>
     <td><%= f.input :clase_exactitud %></td>
     <td><%= f.input :tipo_expancion_aceite %></td>
     <td><%= f.input :tipo_envolvente %></td>
     <td><%= f.input :mva %></td>
-    <td><%= f.input :kv_nom_at %></td>
-    <td><%= f.input :kv_nom_bt %></td>
-    <td><%= f.input :kv_nom_terciario %></td>
-    <td><%= f.input :porcentage_z %></td>
     <td><%= f.input :fecha_puesta_servicio %></td>
+     <td>
+  <div class="windings">
+        <h3>Devanados</h3>
+        <%= f.simple_fields_for :windings do |winding| %>
+            <%= render 'winding_fields', f: winding %>
+        <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Agregar Devanado', f, :windings %>
+      </div>
+  </div>
+    </td>
     <td>
   <div class="tap_changers">
         <h3>Cambiador de Taps</h3>
