@@ -5,9 +5,6 @@ class CreatePhases < ActiveRecord::Migration[5.0]
       t.string :marca
       t.string :num_serie
       t.date :fecha_fabricacion
-      t.string :impedencia_max_hx_capacidad
-      t.string :impedancia_max_hy_capacidad
-      t.string :impedancia_max_xy_capacidad
       t.string :relacion_transformacion
       t.string :capacidad_transformacion
       t.string :capacitancia_total
@@ -24,9 +21,6 @@ class CreatePhases < ActiveRecord::Migration[5.0]
       t.string :tipo_expancion_aceite
       t.string :tipo_envolvente
       t.string :mva
-      t.string :kv_nom_at
-      t.string :kv_nom_bt
-      t.string :kv_nom_terciario
       t.date :fecha_puesta_servicio
       t.belongs_to :transformer, foreign_key: true
 

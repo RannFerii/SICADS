@@ -49,7 +49,7 @@ class Equipment::ReactorsController < ApplicationController
   def update
     respond_to do |format|
       if @reactor.update(reactor_params)
-        format.html { redirect_to @reactor, notice: 'Reactor was successfully updated.' }
+        format.html { redirect_to ['equipment',@reactor], notice: 'Reactor was successfully updated.' }
         format.json { render :show, status: :ok, location:['equipment',@reactor]}
       else
         format.html { render :edit }

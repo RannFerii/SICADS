@@ -3,7 +3,7 @@ class CreateTransformers < ActiveRecord::Migration[5.0]
     create_table :transformers do |t|
       t.string :nomenclatura
       t.integer :transformador_type
-      t.integer :phase_type
+      t.string :phase_type
       t.string :numero_activo_fijo
       t.date :fecha_puesta_servicio
 

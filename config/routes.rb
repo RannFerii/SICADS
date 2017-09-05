@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :control do
+    resources :bays
+  end
+  namespace :control do
+    resources :substations
+  end
   devise_for :users
 
   namespace :medition do

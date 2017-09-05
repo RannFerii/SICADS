@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomenclatura:</strong>
+  <%= @bay.nomenclatura %>
+</p>
+          <p>
+            <strong>Subestacíón perteneciente:</strong>
+             <%= @bay.substation.nombre_subestacion %>
+          </p>
+
+          <p>
+             <% if @bay.transformer.present? %>
+            <strong>Transformador </strong>
+            <%= @bay.transformer.nomenclatura %>
+              <% end %>
+          </p>
+          <p>
+            <% if @bay.reactor.present? %>
+            <strong>Reactor</strong>
+             <%= @bay.reactor.nomenclatura  %>
+            <% end %>
+          </p>
+           <p>
+              <% if @bay.blades.present? %>
+                <tr>
+                  <th>Cuchillas</th>
+                  <td>
+                   <ul>
+                     <% @bay.blades.each do |b| %>
+                       <li><%= b.nomenclatura %></li>
+                     <% end %>
+                   </ul>
+                  </td>
+                </tr>
+              <% end %>
+          </p>
+          <p>
+            <% if @bay.lightning_arrester.present? %>
+            <strong>Apartarrayos</strong>
+             <%= @bay.lightning_arrester.nomenclatura %>
+            <% end %>
+          </p>
+
+          <p>
+            <% if @bay.battery_bank.present? %>
+            <strong>Banco de Baterías</strong>
+             <%= @bay.battery_bank.nomenclatura %>
+            <% end %>
+          </p>
+
+          <p>
+           <% if @bay.switch.present? %>
+            <strong>Interruptor</strong>
+             <%= @bay.switch.nomenclatura %>
+           <% end %>
+          </p>
+<%= link_to 'Edit', edit_control_bay_path(@bay) %> |
+<%= link_to 'Back', control_bays_path %>

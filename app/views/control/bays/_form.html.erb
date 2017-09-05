@@ -1,0 +1,21 @@
+<%= simple_form_for(['control',@bay]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nomenclatura %>
+              <label>Subestación: </label>
+          <%= f.select :substation_id,Substation.all.map { |u| [u.nombre_subestacion, u.id ]},{class:"selectpicker show-tick"},{class:"selectpicker show-tick"} %>
+          <label>Nomenclatura de Transformador</label>
+          <%= f.select :transformer_id, Transformer.all.map { |u| [u.nomenclatura, u.id ]}, { prompt: '- Seleccionar -' }  %>
+          <%= f.select :reactor_id, Reactor.all.map { |u| [u.nomenclatura, u.id ]}, { prompt: '- Seleccionar -' }  %>
+            <%= f.collection_select :blade_ids, Blade.all, :id,:nomenclatura,{},{multiple:true, class: "form-control"} %>
+          <%= f.select :lightning_arrester_id, LightningArrester.all.map { |u| [u.nomenclatura, u.id ]}, { prompt: '- Seleccionar -' } %>
+          <%= f.select :switch_id, Switch.all.map { |u| [u.nomenclatura, u.id ]}, { prompt: '- Seleccionar -' }  %>
+          <label>Nomenclatura de Banco de Baterías</label>
+          <%= f.select :battery_bank_id, BatteryBank.all.map { |u| [u.nomenclatura, u.id ]}, { prompt: '- Seleccionar -' }  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

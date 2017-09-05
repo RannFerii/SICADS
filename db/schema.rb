@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901163951) do
+ActiveRecord::Schema.define(version: 20170904234855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,28 @@ ActiveRecord::Schema.define(version: 20170901163951) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "bays", force: :cascade do |t|
+    t.string   "nomenclatura"
+    t.integer  "substation_id"
+    t.integer  "battery_bank_id"
+    t.integer  "reactor_id"
+    t.integer  "transformer_id"
+    t.integer  "switch_id"
+    t.integer  "lightning_arrester_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["battery_bank_id"], name: "index_bays_on_battery_bank_id", using: :btree
+    t.index ["lightning_arrester_id"], name: "index_bays_on_lightning_arrester_id", using: :btree
+    t.index ["reactor_id"], name: "index_bays_on_reactor_id", using: :btree
+    t.index ["substation_id"], name: "index_bays_on_substation_id", using: :btree
+    t.index ["switch_id"], name: "index_bays_on_switch_id", using: :btree
+    t.index ["transformer_id"], name: "index_bays_on_transformer_id", using: :btree
+  end
+
   create_table "blades", force: :cascade do |t|
     t.string   "nomenclatura"
-    t.string   "cuchilla_type"
-    t.string   "mecanismo_type"
+    t.integer  "cuchilla_type"
+    t.integer  "mecanismo_type"
     t.string   "nivel_basico_impulso"
     t.string   "marca"
     t.string   "num_serie"
@@ -39,8 +57,10 @@ ActiveRecord::Schema.define(version: 20170901163951) do
     t.string   "tension_sistema"
     t.date     "fecha_puesta_servicio"
     t.date     "fecha_fabricacion"
+    t.integer  "bay_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.index ["bay_id"], name: "index_blades_on_bay_id", using: :btree
   end
 
   create_table "calibrations", force: :cascade do |t|
@@ -81,9 +101,6 @@ ActiveRecord::Schema.define(version: 20170901163951) do
     t.string   "marca"
     t.string   "num_serie"
     t.date     "fecha_fabricacion"
-    t.string   "impedencia_max_hx_capacidad"
-    t.string   "impedancia_max_hy_capacidad"
-    t.string   "impedancia_max_xy_capacidad"
     t.string   "relacion_transformacion"
     t.string   "capacidad_transformacion"
     t.string   "capacitancia_total"
@@ -100,13 +117,10 @@ ActiveRecord::Schema.define(version: 20170901163951) do
     t.string   "tipo_expancion_aceite"
     t.string   "tipo_envolvente"
     t.string   "mva"
-    t.string   "kv_nom_at"
-    t.string   "kv_nom_bt"
-    t.string   "kv_nom_terciario"
     t.date     "fecha_puesta_servicio"
     t.integer  "transformer_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["transformer_id"], name: "index_phases_on_transformer_id", using: :btree
   end
 
@@ -134,6 +148,19 @@ ActiveRecord::Schema.define(version: 20170901163951) do
     t.integer  "kv_nom_bt"
     t.integer  "kv_nom_terciario"
     t.date     "fecha_fabricacion"
+    t.date     "fecha_puesta_servicio"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "substations", force: :cascade do |t|
+    t.string   "nombre_subestacion"
+    t.string   "subestacion_abbr"
+    t.string   "direccion"
+    t.string   "extencion"
+    t.string   "encargado_nombre"
+    t.string   "encargado_apellidos"
+    t.string   "capacidad"
     t.date     "fecha_puesta_servicio"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -186,7 +213,7 @@ ActiveRecord::Schema.define(version: 20170901163951) do
   create_table "transformers", force: :cascade do |t|
     t.string   "nomenclatura"
     t.integer  "transformador_type"
-    t.integer  "phase_type"
+    t.string   "phase_type"
     t.string   "numero_activo_fijo"
     t.date     "fecha_puesta_servicio"
     t.datetime "created_at",            null: false
@@ -215,9 +242,30 @@ ActiveRecord::Schema.define(version: 20170901163951) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "windings", force: :cascade do |t|
+    t.integer  "devanado_type"
+    t.string   "devanado_kv"
+    t.string   "porcentaje_z"
+    t.string   "z_mva"
+    t.string   "z_kv"
+    t.integer  "conexion_type"
+    t.integer  "phase_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["phase_id"], name: "index_windings_on_phase_id", using: :btree
+  end
+
+  add_foreign_key "bays", "battery_banks"
+  add_foreign_key "bays", "lightning_arresters"
+  add_foreign_key "bays", "reactors"
+  add_foreign_key "bays", "substations"
+  add_foreign_key "bays", "switches"
+  add_foreign_key "bays", "transformers"
+  add_foreign_key "blades", "bays"
   add_foreign_key "calibrations", "measurement_equipments"
   add_foreign_key "phases", "transformers"
   add_foreign_key "react_mouthpieces", "reactors"
   add_foreign_key "tap_changers", "phases"
   add_foreign_key "trans_mouthpieces", "phases"
+  add_foreign_key "windings", "phases"
 end

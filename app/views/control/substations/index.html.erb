@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Control Substations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre subestacion</th>
+      <th>Subestacion abbr</th>
+      <th>Direccion</th>
+      <th>Extencion</th>
+      <th>Encargado nombre</th>
+      <th>Encargado apellidos</th>
+      <th>Capacidad</th>
+      <th>Fecha puesta servicio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @substations.each do |substation| %>
+      <tr>
+        <td><%= substation.nombre_subestacion %></td>
+        <td><%= substation.subestacion_abbr %></td>
+        <td><%= substation.direccion %></td>
+        <td><%= substation.extencion %></td>
+        <td><%= substation.encargado_nombre %></td>
+        <td><%= substation.encargado_apellidos %></td>
+        <td><%= substation.capacidad %></td>
+        <td><%= substation.fecha_puesta_servicio %></td>
+        <td><%= link_to 'Show', control_substation_path(substation)  %></td>
+        <td><%= link_to 'Edit', edit_control_substation_path(substation) %></td>
+        <td><%= link_to 'Destroy',control_substation_path(substation)  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Control Substation', new_control_substation_path %>
