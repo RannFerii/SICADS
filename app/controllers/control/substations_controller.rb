@@ -1,7 +1,7 @@
 class Control::SubstationsController < ApplicationController
   before_action :set_substation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_filter :admin_only, :except => [:show,:index]
+  before_action :admin_only, :except => [:show,:index]
 
     def admin_only
       unless current_user.admin?
@@ -78,6 +78,7 @@ class Control::SubstationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def substation_params
-      params.require(:substation).permit(:nombre_subestacion, :subestacion_abbr, :direccion, :extencion, :encargado_nombre, :encargado_apellidos, :capacidad, :fecha_puesta_servicio)
+      params.require(:substation).permit(:nombre_subestacion, :subestacion_abbr, :direccion, :latitude, :longitude, :extencion, :encargado_nombre, :encargado_apellidos, :capacidad, :fecha_puesta_servicio)
     end
 end
+

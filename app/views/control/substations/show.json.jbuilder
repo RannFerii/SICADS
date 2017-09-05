@@ -1,1 +1,4 @@
-json.partial! "control_substations/control_substation", control_substation: @control_substation
+
+json.array!(['control',@substations) do |substation|
+  json.extract! substat, :latitude, :longitude
+end
